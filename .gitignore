@@ -25,4 +25,8 @@ coverage/
 dist/
 build/
 
-# VS Code
+# VS Code settings
+.vscode/
+
+# TypeScript build info
+*.tsbuildinfo
