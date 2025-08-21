@@ -51,11 +51,7 @@ export class UserModel {
         }
     }
 
-<<<<<<< HEAD
     static async update(id: string, userData: Partial<Omit<User, '$id'>>): Promise<User> {
-=======
-    static async update(id: string, userData: Partial<User>): Promise<User> {
->>>>>>> 5570e1d399a06721e6efbaeeab0cfc0f7da4eea9
         try {
             const user = await databases.updateDocument(
                 DATABASE_ID,

@@ -33,6 +33,7 @@ export interface Car {
 export interface Driver {
   $id?: string;
   rating: number;
+  verified: boolean;
   background_check_status: 'pending' | 'passed' | 'failed';
   background_check_expires_at?: string;
   driver_license_number: string;
@@ -46,11 +47,11 @@ export interface Driver {
 // ── rider
 export interface Rider {
   $id?: string;
-  users?:string;
   home_address?: string;
   work_address?: string;
   total_rides: number;
-  average_rating: number;               
+  average_rating: number;
+  users?: string;                // users.$id
   paymentMethod?: string;       // paymentMethods.$id
 }
 
@@ -68,7 +69,6 @@ export interface Ride {
   payment_status: 'paid' | 'pending' | 'failed';
   drivers?: string;   // drivers.$id
   riders?: string;    // riders.$id
-  created_at?: string;
 }
 
 // ── ride history (flat read model)

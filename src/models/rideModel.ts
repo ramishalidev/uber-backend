@@ -81,11 +81,7 @@ export class RideModel {
         }
     }
 
-<<<<<<< HEAD
     static async update(id: string, rideData: Partial<Omit<Ride, '$id'>>): Promise<Ride> {
-=======
-    static async update(id: string, rideData: Partial<Ride>): Promise<Ride> {
->>>>>>> 5570e1d399a06721e6efbaeeab0cfc0f7da4eea9
         try {
             const ride = await databases.updateDocument(
                 DATABASE_ID,
@@ -116,11 +112,7 @@ export class RideModel {
             const rides = await databases.listDocuments(
                 DATABASE_ID,
                 COLLECTIONS.RIDES,
-<<<<<<< HEAD
                 queries.length ? queries : undefined
-=======
-                queries
->>>>>>> 5570e1d399a06721e6efbaeeab0cfc0f7da4eea9
             );
             return rides.documents as unknown as Ride[];
         } catch (error) {

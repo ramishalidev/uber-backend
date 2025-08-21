@@ -1,9 +1,6 @@
 import { Request, Response } from 'express';
 import { UserModel } from '../models/userModel';
-<<<<<<< HEAD
 import { Query } from 'node-appwrite';
-=======
->>>>>>> 5570e1d399a06721e6efbaeeab0cfc0f7da4eea9
 import { User } from '../types/models';
 
 export class UserController {
@@ -126,21 +123,6 @@ export class UserController {
 
     static async list(req: Request, res: Response) {
         try {
-<<<<<<< HEAD
-            const { role, limit, offset } = req.query as Record<string, string | undefined>;
-            const queries: string[] = [];
-
-            if (role) {
-                queries.push(Query.equal('role', role));
-            }
-
-            if (limit !== undefined) {
-                queries.push(Query.limit(Number(limit)));
-            }
-            if (offset !== undefined && Number(offset) > 0) {
-                queries.push(Query.offset(Number(offset)));
-            }
-=======
             const { role, limit = '20', offset = '0' } = req.query;
             const queries: string[] = [];
             
@@ -150,7 +132,6 @@ export class UserController {
             
             queries.push(`limit(${limit})`);
             queries.push(`offset(${offset})`);
->>>>>>> 5570e1d399a06721e6efbaeeab0cfc0f7da4eea9
 
             const users = await UserModel.list(queries);
             

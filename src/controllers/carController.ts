@@ -1,9 +1,6 @@
 import { Request, Response } from 'express';
 import { CarModel } from '../models/carModel';
-<<<<<<< HEAD
 import { Query } from 'node-appwrite';
-=======
->>>>>>> 5570e1d399a06721e6efbaeeab0cfc0f7da4eea9
 import { Car } from '../types/models';
 
 export class CarController {
@@ -22,11 +19,7 @@ export class CarController {
 
             // Validate vehicle year
             const currentYear = new Date().getFullYear();
-<<<<<<< HEAD
             if (carData?.vehicle_year < 1900 || carData?.vehicle_year > currentYear + 1) {
-=======
-            if (carData.vehicle_year < 1900 || carData.vehicle_year > currentYear + 1) {
->>>>>>> 5570e1d399a06721e6efbaeeab0cfc0f7da4eea9
                 return res.status(400).json({
                     success: false,
                     message: 'Invalid vehicle year'
@@ -160,21 +153,6 @@ export class CarController {
 
     static async list(req: Request, res: Response) {
         try {
-<<<<<<< HEAD
-            const { driver, limit, offset } = req.query as Record<string, string | undefined>;
-            const queries: string[] = [];
-
-            if (driver) {
-                queries.push(Query.equal('driver', driver));
-            }
-
-            if (limit !== undefined) {
-                queries.push(Query.limit(Number(limit)));
-            }
-            if (offset !== undefined && Number(offset) > 0) {
-                queries.push(Query.offset(Number(offset)));
-            }
-=======
             const { driver, limit = '20', offset = '0' } = req.query;
             const queries: string[] = [];
             
@@ -184,7 +162,6 @@ export class CarController {
             
             queries.push(`limit(${limit})`);
             queries.push(`offset(${offset})`);
->>>>>>> 5570e1d399a06721e6efbaeeab0cfc0f7da4eea9
 
             const cars = await CarModel.list(queries);
             

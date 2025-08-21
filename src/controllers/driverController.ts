@@ -1,9 +1,6 @@
 import { Request, Response } from 'express';
 import { DriverModel } from '../models/driverModel';
-<<<<<<< HEAD
 import { Query } from 'node-appwrite';
-=======
->>>>>>> 5570e1d399a06721e6efbaeeab0cfc0f7da4eea9
 import { Driver } from '../types/models';
 
 export class DriverController {
@@ -154,7 +151,6 @@ export class DriverController {
 
     static async list(req: Request, res: Response) {
         try {
-<<<<<<< HEAD
             const { background_check_status, limit, offset } = req.query as Record<string, string | undefined>;
             const queries: string[] = [];
 
@@ -168,21 +164,6 @@ export class DriverController {
             if (offset !== undefined && Number(offset) > 0) {
                 queries.push(Query.offset(Number(offset)));
             }
-=======
-            const { verified, background_check_status, limit = '20', offset = '0' } = req.query;
-            const queries: string[] = [];
-            
-            if (verified !== undefined) {
-                queries.push(`equal("verified", ${verified})`);
-            }
-            
-            if (background_check_status) {
-                queries.push(`equal("background_check_status", "${background_check_status}")`);
-            }
-            
-            queries.push(`limit(${limit})`);
-            queries.push(`offset(${offset})`);
->>>>>>> 5570e1d399a06721e6efbaeeab0cfc0f7da4eea9
 
             const drivers = await DriverModel.list(queries);
             
