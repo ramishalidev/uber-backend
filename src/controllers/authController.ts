@@ -2,7 +2,7 @@ import { User } from "@/types/appwrite";
 import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 import { ID, Query } from "node-appwrite";
-import { users, databases, account } from "../middlewares/appWrite";
+import { users, databases, account } from "../config/appwrite";
 
 export const signUpController = async (req: Request, res: Response) => {
   const {
