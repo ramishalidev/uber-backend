@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Client, Databases, Account, Storage, Users } from 'node-appwrite';
+=======
+import { Client, Databases, Account, Storage } from 'node-appwrite';
+>>>>>>> 5570e1d399a06721e6efbaeeab0cfc0f7da4eea9
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -13,7 +17,10 @@ const client = new Client()
 export const databases = new Databases(client);
 export const account = new Account(client);
 export const storage = new Storage(client);
+<<<<<<< HEAD
 export const users = new Users(client);
+=======
+>>>>>>> 5570e1d399a06721e6efbaeeab0cfc0f7da4eea9
 
 // Database ID
 export const DATABASE_ID = process.env.APPWRITE_DATABASE_ID || 'uber_db';

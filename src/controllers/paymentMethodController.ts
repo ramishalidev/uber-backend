@@ -1,6 +1,9 @@
 import { Request, Response } from 'express';
 import { PaymentMethodModel } from '../models/paymentMethodModel';
+<<<<<<< HEAD
 import { Query } from 'node-appwrite';
+=======
+>>>>>>> 5570e1d399a06721e6efbaeeab0cfc0f7da4eea9
 import { PaymentMethod } from '../types/models';
 
 export class PaymentMethodController {
@@ -105,6 +108,7 @@ export class PaymentMethodController {
 
     static async list(req: Request, res: Response) {
         try {
+<<<<<<< HEAD
             const { method, limit, offset } = req.query as Record<string, string | undefined>;
             const queries: string[] = [];
 
@@ -118,6 +122,17 @@ export class PaymentMethodController {
             if (offset !== undefined && Number(offset) > 0) {
                 queries.push(Query.offset(Number(offset)));
             }
+=======
+            const { method, limit = '20', offset = '0' } = req.query;
+            const queries: string[] = [];
+            
+            if (method) {
+                queries.push(`equal("method", "${method}")`);
+            }
+            
+            queries.push(`limit(${limit})`);
+            queries.push(`offset(${offset})`);
+>>>>>>> 5570e1d399a06721e6efbaeeab0cfc0f7da4eea9
 
             const paymentMethods = await PaymentMethodModel.list(queries);
             

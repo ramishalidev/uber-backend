@@ -1,6 +1,9 @@
 import { Request, Response } from 'express';
 import { RideModel } from '../models/rideModel';
+<<<<<<< HEAD
 import { Query } from 'node-appwrite';
+=======
+>>>>>>> 5570e1d399a06721e6efbaeeab0cfc0f7da4eea9
 import { Ride } from '../types/models';
 
 export class RideController {
@@ -230,6 +233,7 @@ export class RideController {
 
     static async list(req: Request, res: Response) {
         try {
+<<<<<<< HEAD
             const { payment_status, limit, offset } = req.query as Record<string, string | undefined>;
             const queries: string[] = [];
 
@@ -243,6 +247,17 @@ export class RideController {
             if (offset !== undefined && Number(offset) > 0) {
                 queries.push(Query.offset(Number(offset)));
             }
+=======
+            const { payment_status, limit = '20', offset = '0' } = req.query;
+            const queries: string[] = [];
+            
+            if (payment_status) {
+                queries.push(`equal("payment_status", "${payment_status}")`);
+            }
+            
+            queries.push(`limit(${limit})`);
+            queries.push(`offset(${offset})`);
+>>>>>>> 5570e1d399a06721e6efbaeeab0cfc0f7da4eea9
 
             const rides = await RideModel.list(queries);
             

@@ -31,7 +31,11 @@ export class RideHistoryModel {
     const res = await databases.listDocuments(
       DATABASE_ID,
       COLLECTIONS.RIDE_HISTORY,
+<<<<<<< HEAD
       queries.length ? queries : undefined
+=======
+      queries
+>>>>>>> 5570e1d399a06721e6efbaeeab0cfc0f7da4eea9
     );
     return res.documents as unknown as RideHistory[];
   }

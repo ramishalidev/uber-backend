@@ -7,16 +7,7 @@
     "start": "node dist/index.js",
     "dev": "nodemon src/index.ts",
     "clean": "rimraf dist",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "seed:users": "node dist/scripts/seedUsers.js",
-    "seed:drivers": "node dist/scripts/seedDrivers.js",
-    "seed:riders": "node dist/scripts/seedRiders.js",
-    "seed:cars": "node dist/scripts/seedCars.js",
-    "seed:rides": "node dist/scripts/seedRides.js",
-    "seed:payments": "node dist/scripts/seedPaymentMethods.js",
-    "seed:ride-history": "node dist/scripts/seedRideHistory.js",
-    "seed:all": "npm run seed:users && npm run seed:payments && npm run seed:drivers && npm run seed:riders && npm run seed:cars && npm run seed:rides && npm run seed:ride-history",
-    "test:routes": "ts-node src/scripts/testRoutes.ts"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -30,9 +21,7 @@
   "homepage": "https://github.com/ramishalidev/uber-backend#readme",
   "description": "",
   "dependencies": {
-    "appwrite": "^18.2.0",
     "axios": "^1.11.0",
-    "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
